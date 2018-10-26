@@ -44,5 +44,11 @@ template <typename T> void setZero (T &dst)
         for (size_t j = 0; j < columns (dst); ++j)
             ref (dst, i, j) = 0;
 }
+template <typename T> void add (T &dst, T const &right)
+{
+    for (size_t i = 0; i < rows (dst); ++i)
+        for (size_t j = 0; j < columns (dst); ++j)
+            ref (dst, i, j) += at (right, i, j);
+}
 
 } // namespace numcpp
